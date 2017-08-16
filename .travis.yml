@@ -1,0 +1,14 @@
+language: objective-c
+
+matrix:
+  include:
+    - os: osx
+      osx_image: xcode8.2
+    - os: osx
+      osx_image: xcode8.3
+
+branches:
+  only: master
+
+script:
+  - set -o pipefail && xcodebuild test -scheme "SwiftCompilerBug" -destination "platform=OS X" -configuration Debug | xcpretty
